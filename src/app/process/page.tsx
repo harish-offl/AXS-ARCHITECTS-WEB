@@ -12,7 +12,7 @@ export const metadata: Metadata = buildMetadata({
 export default function ProcessPage() {
   return (
     <main className="flex-1">
-      <section className="section relative overflow-hidden pt-[140px]">
+      <section className="section relative overflow-hidden pt-[140px] pb-0">
         <div className="section-inner relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <span className="section-eyebrow inline-block">Our Process</span>

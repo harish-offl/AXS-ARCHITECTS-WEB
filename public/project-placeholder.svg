@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" role="img" aria-label="AXS Architects project image placeholder">
+  <rect width="1200" height="1500" fill="#F1F1F1"/>
+  <rect x="40" y="40" width="1120" height="1420" fill="none" stroke="#E2E2E2" stroke-width="2"/>
+  <g fill="#000000" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif">
+    <text x="600" y="720" font-size="132" font-weight="700" letter-spacing="8">AXS</text>
+    <text x="600" y="790" font-size="34" font-weight="500" letter-spacing="14" fill="#5A5A5A">ARCHITECTS</text>
+  </g>
+</svg>

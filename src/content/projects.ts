@@ -323,12 +323,10 @@ export const projects: Project[] = [
     category: "Residential",
     location: "Vadapalani, Chennai, Tamil Nadu",
     description: null,
-    cover: "https://axsarchitects.com/wp-content/uploads/2023/03/Daughter-Room-First-Cut-1_1_11zon.jpg",
+    cover: "https://axsarchitects.com/wp-content/uploads/2023/03/Kitchen-First-Cut-1_5_11zon.jpg",
     alt: "Residence Capella, Vadapalani Chennai",
     gallery: [
-      { src: "https://axsarchitects.com/wp-content/uploads/2023/03/Daughter-Room-First-Cut-1_1_11zon.jpg", alt: "Capella daughter room" },
       { src: "https://axsarchitects.com/wp-content/uploads/2023/03/Kitchen-First-Cut-1_5_11zon.jpg", alt: "Capella kitchen" },
-      { src: "https://axsarchitects.com/wp-content/uploads/2023/03/Living_Dining_FIrst-Cut-2_9_11zon.jpg", alt: "Capella living dining" },
       { src: "https://axsarchitects.com/wp-content/uploads/2023/03/Master-Bedroom-First-CUt-1_17_11zon.jpg", alt: "Capella master bedroom" },
     ],
     status: "completed",

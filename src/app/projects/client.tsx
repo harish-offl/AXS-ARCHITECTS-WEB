@@ -29,7 +29,7 @@ function Cover({
       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
       className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
       priority={priority}
-      onError={() => setCurrent("/project-placeholder.png")}
+      onError={() => setCurrent("/project-placeholder.svg")}
     />
   );
 }

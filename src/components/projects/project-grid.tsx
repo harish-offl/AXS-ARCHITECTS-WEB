@@ -32,7 +32,7 @@ function ProjectCover({
       fill
       sizes={sizes}
       priority={priority}
-      onError={() => setCurrent("/project-placeholder.png")}
+      onError={() => setCurrent("/project-placeholder.svg")}
       className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
     />
   );
