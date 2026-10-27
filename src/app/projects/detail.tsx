@@ -25,7 +25,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
             />
           </div>
           <div className="space-y-8 max-w-lg">
-            <span className="font-display font-semibold text-xs uppercase tracking-widest text-accent block">
+            <span className="inline-flex w-fit rounded-full bg-accent px-3 py-1 font-display font-semibold text-xs uppercase tracking-widest text-accent-foreground">
               {project.category}
             </span>
             <h1 className="h1 font-display font-semibold leading-[1.05] tracking-tight text-primary">

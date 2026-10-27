@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -9,6 +10,32 @@ import { Project } from "@/content/projects";
 interface ProjectGridProps {
   title?: string;
   projects: Project[];
+}
+
+function ProjectCover({
+  src,
+  alt,
+  sizes,
+  priority,
+}: {
+  src: string;
+  alt: string;
+  sizes: string;
+  priority?: boolean;
+}) {
+  const [current, setCurrent] = useState(src);
+
+  return (
+    <Image
+      src={current}
+      alt={alt}
+      fill
+      sizes={sizes}
+      priority={priority}
+      onError={() => setCurrent("/project-placeholder.png")}
+      className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+    />
+  );
 }
 
 export function ProjectGrid({ title, projects: items }: ProjectGridProps) {
@@ -21,7 +48,7 @@ export function ProjectGrid({ title, projects: items }: ProjectGridProps) {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
             <div>
               <span className="section-eyebrow">Selected work</span>
-              <h2 className="font-display font-bold leading-[1.06] tracking-tight text-3xl md:text-4xl">
+              <h2 className="font-display font-bold leading-[1.06] tracking-tight text-3xl md:text-4xl text-primary">
                 {title || "Our Projects"}
               </h2>
             </div>
@@ -43,25 +70,25 @@ export function ProjectGrid({ title, projects: items }: ProjectGridProps) {
               >
                 <Link
                   href={`/projects/${project.slug}`}
-                  className="block relative overflow-hidden rounded-[1.5rem] aspect-[3/4]"
+                  className="flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-border bg-background transition-shadow duration-300 hover:shadow-md"
                   aria-label={`View ${project.name} project`}
                 >
-                  <Image
-                    src={project.cover}
-                    alt={project.alt || project.name}
-                    fill
-                    sizes="(max-width: 560px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-accent block mb-1.5">
+                  <div className="relative aspect-[4/5] overflow-hidden bg-secondary">
+                    <ProjectCover
+                      src={project.cover}
+                      alt={project.alt || project.name}
+                      sizes="(max-width: 560px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      priority={i === 0}
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col p-4 md:p-5">
+                    <span className="mb-3 inline-flex w-fit rounded-full bg-accent px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-accent-foreground">
                       {project.category}
                     </span>
-                    <h3 className="font-display font-semibold text-white text-base leading-snug">
+                    <h3 className="font-display font-semibold text-base leading-snug text-primary mb-1">
                       {project.name}
                     </h3>
-                    <p className="text-xs text-white/70 mt-1">
+                    <p className="text-xs text-muted-foreground">
                       {project.location}
                     </p>
                   </div>

@@ -56,7 +56,7 @@ export default function ServicesClient() {
                     className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute bottom-0 left-0 p-4 w-full">
-                    <span className="font-display font-semibold text-xs uppercase tracking-widest text-accent">
+                    <span className="inline-flex rounded-full bg-accent px-3 py-1 font-display font-semibold text-[10px] uppercase tracking-widest text-accent-foreground">
                       {service.category}
                     </span>
                   </div>

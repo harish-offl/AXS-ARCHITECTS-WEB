@@ -19,7 +19,7 @@ export default function AboutClient() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 font-display font-semibold text-sm tracking-widest uppercase text-accent mb-4"
+              className="inline-flex items-center gap-2 font-display font-semibold text-sm tracking-widest uppercase text-muted-foreground mb-4"
             >
               <span className="w-1 h-3 bg-accent" />
               About the studio
@@ -129,7 +129,9 @@ export default function AboutClient() {
                     </div>
                   )}
                   <h3 className="h3 font-display font-semibold mb-1">{member.name}</h3>
-                  <p className="text-sm text-accent font-medium mb-3">{member.role}</p>
+                  <span className="mb-3 inline-flex w-fit rounded-full bg-accent px-3 py-1 text-xs font-semibold text-accent-foreground">
+                    {member.role}
+                  </span>
                   {member.bio && (
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       {member.bio}
@@ -186,7 +188,7 @@ export default function AboutClient() {
               and we&rsquo;ll guide you from concept to delivery.
             </p>
             <Link href="/contact">
-              <Button size="lg">Start a Project</Button>
+              <Button size="lg" variant="accent">Start a Project</Button>
             </Link>
           </div>
         </div>

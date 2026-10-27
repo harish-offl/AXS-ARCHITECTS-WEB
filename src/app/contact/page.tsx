@@ -47,7 +47,7 @@ export default function ContactPage() {
         <section className="section relative overflow-hidden pt-[140px]">
           <div className="section-inner relative z-10">
             <div className="max-w-3xl mx-auto text-center py-20">
-              <span className="font-display font-semibold text-xs uppercase tracking-widest text-accent block mb-4">
+              <span className="font-display font-semibold text-xs uppercase tracking-widest text-muted-foreground block mb-4">
                 Message Sent
               </span>
               <h1 className="h1 font-display font-semibold leading-[1.05] tracking-tight text-primary mb-6">

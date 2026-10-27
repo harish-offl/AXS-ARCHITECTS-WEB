@@ -55,7 +55,7 @@ export default async function ServicePage({
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#242424]/70 to-transparent" />
             <div className="absolute bottom-0 left-0 p-8">
-              <span className="font-display font-semibold text-xs uppercase tracking-widest text-accent block mb-2">
+              <span className="inline-flex rounded-full bg-accent px-3 py-1 font-display font-semibold text-[10px] uppercase tracking-widest text-accent-foreground mb-2">
                 {service.category}
               </span>
               <h1 className="h1 font-display font-semibold text-white leading-snug">

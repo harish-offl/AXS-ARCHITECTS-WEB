@@ -91,7 +91,7 @@ export function SectionIntro() {
                     <Icon className="w-6 h-6 text-accent" />
                   </span>
                   <div>
-                    <h3 className="font-display font-semibold text-lg tracking-tight mb-1.5">
+                    <h3 className="font-display font-semibold text-lg tracking-tight mb-1.5 text-white">
                       {item.title}
                     </h3>
                     <p className="text-sm leading-relaxed text-white/70">

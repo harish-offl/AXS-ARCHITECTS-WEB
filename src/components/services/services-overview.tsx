@@ -53,7 +53,12 @@ export function ServicesOverview({ services: items }: { services: Service[] }) {
                     >
                       {service.category}
                     </span>
-                    <h3 className="font-display font-semibold text-xl tracking-tight mb-3">
+                    <h3
+                      className={cn(
+                        "font-display font-semibold text-xl tracking-tight mb-3",
+                        dark ? "text-white" : "text-primary",
+                      )}
+                    >
                       {service.title}
                     </h3>
                     <p
@@ -67,7 +72,14 @@ export function ServicesOverview({ services: items }: { services: Service[] }) {
                   </div>
 
                   <div className="flex items-center justify-between mt-6">
-                    <span className="text-xs font-medium">Learn more</span>
+                    <span
+                      className={cn(
+                        "text-xs font-medium",
+                        dark ? "text-white/80" : "text-primary/70",
+                      )}
+                    >
+                      Learn more
+                    </span>
                     <span
                       className={cn(
                         "flex items-center justify-center w-10 h-10 rounded-full transition-transform duration-300 group-hover:rotate-45",
