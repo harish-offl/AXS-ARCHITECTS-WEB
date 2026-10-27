@@ -13,7 +13,7 @@ export default function AboutClient() {
 
   return (
     <>
-      <section className="section relative overflow-hidden">
+      <section className="section relative overflow-hidden pt-[140px]">
         <div className="section-inner relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <motion.div
@@ -74,7 +74,7 @@ export default function AboutClient() {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="relative h-[520px] w-full rounded-2xl overflow-hidden border border-border shadow-lg"
+              className="relative h-[520px] w-full rounded-[2rem] overflow-hidden border border-border shadow-lg"
             >
               <div
                 className="absolute inset-0 bg-[url('https://axsarchitects.com/wp-content/uploads/2023/03/0_1_11zon.jpg')] bg-cover bg-center"
@@ -111,11 +111,17 @@ export default function AboutClient() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: members.indexOf(member) * 0.08 }}
-                  className="rounded-xl border border-border bg-card p-8 shadow-sm flex flex-col items-center text-center hover:shadow-md transition-shadow duration-300"
+                  className="rounded-[1.75rem] border border-border bg-card p-8 shadow-sm flex flex-col items-center text-center hover:shadow-md transition-shadow duration-300"
                 >
                   {member.image ? (
-                    <div className="w-24 h-24 rounded-full mb-4 overflow-hidden border border-border">
-                      <Image src={member.image} alt={member.imageAlt || member.name} className="w-full h-full object-cover" fill />
+                    <div className="relative w-24 h-24 rounded-full mb-4 overflow-hidden border border-border">
+                      <Image
+                        src={member.image}
+                        alt={member.imageAlt || member.name}
+                        sizes="96px"
+                        className="object-cover"
+                        fill
+                      />
                     </div>
                   ) : (
                     <div className="w-24 h-24 rounded-full bg-secondary flex items-center justify-center mb-4 border border-border">
@@ -125,11 +131,9 @@ export default function AboutClient() {
                   <h3 className="h3 font-display font-semibold mb-1">{member.name}</h3>
                   <p className="text-sm text-accent font-medium mb-3">{member.role}</p>
                   {member.bio && (
-                {member.bio && (
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {member.bio}
-                  </p>
-                )}
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {member.bio}
+                    </p>
                   )}
                 </motion.div>
               ))}
@@ -154,7 +158,7 @@ export default function AboutClient() {
               <motion.div
                 key={item.name}
                 whileHover={{ y: -4 }}
-                className="rounded-xl border border-border bg-card p-8 shadow-sm"
+                className="rounded-[1.75rem] border border-border bg-card p-8 shadow-sm"
               >
                 <p className="text-lg text-muted-foreground leading-relaxed italic mb-6">
                   “{item.text}”
@@ -170,7 +174,7 @@ export default function AboutClient() {
 
       <section className="section relative overflow-hidden">
         <div className="section-inner relative z-10">
-          <div className="rounded-3xl border border-border bg-[#242424] p-10 md:p-16 text-center text-white shadow-xl">
+          <div className="rounded-[2rem] bg-primary p-10 md:p-16 text-center text-white">
             <span className="font-display font-semibold text-xs uppercase tracking-widest text-accent block mb-4">
               Ready to begin?
             </span>

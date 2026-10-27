@@ -1,65 +1,88 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 import { Service } from "@/content/services";
+import { cn } from "@/lib/utils";
 
 export function ServicesOverview({ services: items }: { services: Service[] }) {
-  const visible = items.filter((s) => s.published);
+  const visible = items.filter((s) => s.published).slice(0, 4);
   if (visible.length === 0) return null;
 
   return (
-    <section className="section bg-white">
+    <section className="section">
       <div className="section-inner">
-        <div className="section-header mb-12 text-center">
-          <span className="section-eyebrow">Our Services</span>
-          <h2 className="h2 font-display font-semibold leading-[1.05] tracking-tight text-primary">
-            Services We Offer
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <span className="section-eyebrow justify-center">What we do</span>
+          <h2 className="font-display font-bold leading-[1.06] tracking-tight mb-4">
+            Services we offer
           </h2>
-          <p className="section-subtitle max-w-xl mx-auto">
-            Architecture, interior design, planning, 3D modelling, execution,
-            and elevation design — tailored to your project.
+          <p className="section-subtitle">
+            Architecture, interiors, planning, and execution — a complete
+            design and build service tailored to your project.
           </p>
         </div>
-        <div className="grid-3">
-          {visible.map((service) => (
-            <motion.div
-              key={service.slug}
-              whileHover={{ y: -6 }}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: visible.indexOf(service) * 0.06 }}
-              className="group flex flex-col rounded-xl border border-border bg-card shadow-sm hover:shadow-md transition-all duration-300"
-            >
-              <div className="relative h-48 overflow-hidden rounded-t-xl">
-                <Image
-                  src={service.image}
-                  alt={service.imageAlt}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute bottom-0 left-0 p-4 w-full">
-                  <span className="font-display font-semibold text-xs uppercase tracking-widest text-accent">
-                    {service.category}
-                  </span>
-                </div>
-              </div>
-              <div className="p-6 flex-1 flex flex-col">
-                <h3 className="h3 font-display font-semibold mb-2">{service.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
-                  {service.description}
-                </p>
+
+        <div className="grid-4">
+          {visible.map((service, i) => {
+            const dark = i % 2 === 1;
+            return (
+              <motion.div
+                key={service.slug}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ delay: i * 0.06 }}
+              >
                 <Link
                   href={`/services/${service.slug}`}
-                  className="inline-flex items-center gap-1 font-medium text-primary hover:text-accent transition-colors"
+                  className={cn(
+                    "group flex h-full min-h-[300px] flex-col justify-between rounded-[1.75rem] p-6 transition-transform duration-300 hover:-translate-y-1",
+                    dark
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-secondary text-primary border border-border",
+                  )}
                 >
-                  Read more <span className="w-3 h-3">→</span>
+                  <div>
+                    <span
+                      className={cn(
+                        "text-[10px] font-semibold uppercase tracking-[0.16em] block mb-4",
+                        dark ? "text-accent" : "text-muted-foreground",
+                      )}
+                    >
+                      {service.category}
+                    </span>
+                    <h3 className="font-display font-semibold text-xl tracking-tight mb-3">
+                      {service.title}
+                    </h3>
+                    <p
+                      className={cn(
+                        "text-sm leading-relaxed line-clamp-4",
+                        dark ? "text-white/70" : "text-muted-foreground",
+                      )}
+                    >
+                      {service.description}
+                    </p>
+                  </div>
+
+                  <div className="flex items-center justify-between mt-6">
+                    <span className="text-xs font-medium">Learn more</span>
+                    <span
+                      className={cn(
+                        "flex items-center justify-center w-10 h-10 rounded-full transition-transform duration-300 group-hover:rotate-45",
+                        dark
+                          ? "bg-accent text-accent-foreground"
+                          : "bg-primary text-primary-foreground",
+                      )}
+                    >
+                      <ArrowUpRight className="w-4 h-4" />
+                    </span>
+                  </div>
                 </Link>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

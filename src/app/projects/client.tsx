@@ -21,7 +21,7 @@ export default function ProjectsList({ projects: items }: ProjectsListProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: items.indexOf(project) * 0.08 }}
-          className="group relative rounded-2xl overflow-hidden border border-border bg-card shadow-sm"
+          className="group relative rounded-[1.75rem] overflow-hidden border border-border bg-card shadow-sm"
         >
           <Link
             href={`/projects/${project.slug}`}

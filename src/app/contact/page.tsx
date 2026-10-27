@@ -44,7 +44,7 @@ export default function ContactPage() {
   if (submitted) {
     return (
       <main className="flex-1">
-        <section className="section relative overflow-hidden">
+        <section className="section relative overflow-hidden pt-[140px]">
           <div className="section-inner relative z-10">
             <div className="max-w-3xl mx-auto text-center py-20">
               <span className="font-display font-semibold text-xs uppercase tracking-widest text-accent block mb-4">
@@ -69,7 +69,7 @@ export default function ContactPage() {
 
   return (
     <main className="flex-1">
-      <section className="section relative overflow-hidden">
+      <section className="section relative overflow-hidden pt-[140px]">
         <div className="section-inner relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <span className="section-eyebrow inline-block">Get in touch</span>

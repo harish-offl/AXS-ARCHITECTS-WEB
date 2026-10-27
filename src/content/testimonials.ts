@@ -15,6 +15,7 @@ export const testimonials: Testimonial[] = [
   {
     name: "Satisfied Client",
     text: "A highly knowledgeable and cooperative team. Professional, precise, and detail-oriented. I'm very pleased with their turnkey work.",
+    published: true,
   },
   {
     name: "James",

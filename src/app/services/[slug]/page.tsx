@@ -42,9 +42,9 @@ export default async function ServicePage({
 
   return (
     <main className="flex-1">
-      <section className="section relative overflow-hidden">
+      <section className="section relative overflow-hidden pt-[140px]">
         <div className="section-inner relative z-10">
-          <div className="relative h-[400px] w-full rounded-2xl overflow-hidden border border-border shadow-lg mb-10">
+          <div className="relative h-[400px] w-full rounded-[2rem] overflow-hidden border border-border shadow-lg mb-10">
             <Image
               src={service.image}
               alt={service.imageAlt}
@@ -102,19 +102,22 @@ export default async function ServicePage({
                   <Link
                     key={project!.slug}
                     href={`/projects/${project!.slug}`}
-                    className="flex items-center gap-3 p-4 rounded-xl border border-border bg-card hover:bg-secondary/50 hover:border-accent transition-all duration-200"
+                    className="flex items-center gap-3 p-3 rounded-[1.25rem] border border-border bg-card hover:bg-secondary transition-colors"
                   >
-                    <Image
-                      src={project!.cover}
-                      alt={project!.alt || project!.name}
-                      fill
-                      className="w-20 h-20 rounded-lg object-cover flex-shrink-0"
-                    />
+                    <div className="relative w-20 h-20 shrink-0 overflow-hidden rounded-xl">
+                      <Image
+                        src={project!.cover}
+                        alt={project!.alt || project!.name}
+                        fill
+                        sizes="80px"
+                        className="object-cover"
+                      />
+                    </div>
                     <div>
-                      <div className="text-xs font-medium text-accent uppercase tracking-widest">
+                      <div className="text-xs font-medium text-muted-foreground uppercase tracking-widest">
                         {project!.category}
                       </div>
-                      <div className="font-bold text-sm">{project!.name}</div>
+                      <div className="font-semibold text-sm">{project!.name}</div>
                     </div>
                   </Link>
                 ))}

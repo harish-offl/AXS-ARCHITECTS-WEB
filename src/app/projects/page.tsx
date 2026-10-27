@@ -17,7 +17,7 @@ export default function ProjectsPage() {
 
   return (
     <main className="flex-1">
-      <section className="section relative overflow-hidden">
+      <section className="section relative overflow-hidden pt-[140px]">
         <div className="section-inner relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <span className="section-eyebrow inline-block">Selected Work</span>

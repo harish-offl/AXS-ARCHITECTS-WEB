@@ -10,10 +10,10 @@ interface ProjectDetailProps {
 
 export default function ProjectDetail({ project }: ProjectDetailProps) {
   return (
-    <section className="section relative overflow-hidden">
+    <section className="section relative overflow-hidden pt-[140px]">
       <div className="section-inner relative z-10">
-        <div className="grid lg:grid-cols-2 gap-24 items-start">
-          <div className="relative h-[600px] w-full rounded-2xl overflow-hidden border border-border shadow-lg mb-8 lg:mb-0">
+        <div className="grid lg:grid-cols-2 gap-14 items-start">
+          <div className="relative h-[600px] w-full rounded-[2rem] overflow-hidden border border-border shadow-lg mb-8 lg:mb-0">
             <Image
               src={project.cover}
               alt={project.alt || project.name}
@@ -67,7 +67,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
               {project.gallery.map((img, i) => (
                 <div
                   key={i}
-                  className="relative h-56 overflow-hidden rounded-xl border border-border"
+                  className="relative h-56 overflow-hidden rounded-[1.25rem] border border-border"
                 >
                   <Image
                     src={img.src}

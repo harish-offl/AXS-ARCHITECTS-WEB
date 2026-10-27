@@ -5,12 +5,10 @@ import { useEffect, useState, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { navLinks } from "@/content/site";
+import { navLinks, site } from "@/content/site";
 import { cn } from "@/lib/utils";
-
-const HEADER_HEIGHT = 72;
 
 export function Header() {
   const pathname = usePathname();
@@ -18,9 +16,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
+    const onScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -34,35 +30,38 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled
           ? "bg-background/95 backdrop-blur-md border-b border-border"
-          : "bg-background"
-      }`}
-      style={{ paddingTop: `calc(${HEADER_HEIGHT}px + env(safe-area-inset-top))` }}
+          : "bg-transparent",
+      )}
     >
-      <div className="relative w-full">
-        <div className="flex items-center justify-between h-[72px] px-6 lg:px-8">
+      <div className="section-inner">
+        <div className="flex items-center justify-between h-[88px]">
           <Link
             href="/"
-            className="flex items-center gap-2"
+            className="flex items-center gap-2 shrink-0"
             aria-label="AXS Architects home"
           >
-            <span className="font-display font-semibold text-xl tracking-tight text-primary">
-              AXS Architects
+            <span className="font-display font-bold text-lg tracking-tight text-primary">
+              AXS
+            </span>
+            <span className="hidden sm:inline font-display font-medium text-sm tracking-tight text-muted-foreground">
+              Architects
             </span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-10 text-sm font-medium tracking-wider">
+          <nav className="hidden lg:flex items-center gap-9 text-sm font-medium">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 className={cn(
-                  "transition-colors hover:opacity-80",
+                  "transition-colors",
                   isActive(link.href)
                     ? "text-primary font-semibold"
-                    : "text-primary",
+                    : "text-muted-foreground hover:text-primary",
                 )}
                 aria-current={isActive(link.href) ? "page" : undefined}
               >
@@ -71,27 +70,25 @@ export function Header() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-4">
-            <Link href="/projects">
-              <Button size="sm" variant="outline">
-                Explore Projects
+          <div className="flex items-center gap-2 sm:gap-3">
+            <Link href="/contact" className="hidden sm:block">
+              <Button size="sm" variant="outline" className="gap-2">
+                <Phone className="w-3.5 h-3.5" />
+                <span className="hidden xl:inline">{site.phones[0]}</span>
+                <span className="xl:hidden">Call</span>
               </Button>
             </Link>
-            <Link href="/contact">
+            <Link href="/contact" className="hidden sm:block">
               <Button size="sm">Start a Project</Button>
             </Link>
 
             <button
               onClick={handleMenu}
-              className="md:hidden flex items-center justify-center w-10 h-10 rounded-md text-secondary hover:bg-accent hover:text-accent-foreground transition-colors"
+              className="lg:hidden flex items-center justify-center w-11 h-11 rounded-full border border-border bg-background text-primary transition-colors hover:bg-secondary"
               aria-label="Toggle navigation menu"
               aria-expanded={open}
             >
-              {open ? (
-                <X className="w-5 h-5" />
-              ) : (
-                <Menu className="w-5 h-5" />
-              )}
+              {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
@@ -103,47 +100,35 @@ export function Header() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="md:hidden bg-card border-b border-border"
+            className="lg:hidden bg-background border-b border-border"
           >
-            <div className="flex items-center justify-between px-6 py-4 border-b border-border">
-              <span className="font-display font-semibold text-xl tracking-tight text-primary">
-                AXS Architects
-              </span>
-              <button
-                onClick={handleMenu}
-                className="w-10 h-10 rounded-md text-secondary hover:bg-accent hover:text-accent-foreground transition-colors"
-                aria-label="Close navigation menu"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-            <div className="py-4 px-6 space-y-1">
+            <div className="section-inner py-4 space-y-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
                   onClick={handleMenu}
                   className={cn(
-                    "block px-4 py-3 text-sm font-medium transition-colors",
+                    "block px-4 py-3 rounded-full text-sm font-medium transition-colors",
                     isActive(link.href)
-                      ? "bg-accent text-accent-foreground"
-                      : "text-secondary hover:text-accent hover:bg-secondary",
+                      ? "bg-primary text-primary-foreground"
+                      : "text-muted-foreground hover:text-primary hover:bg-secondary",
                   )}
                   aria-current={isActive(link.href) ? "page" : undefined}
                 >
                   {link.name}
                 </Link>
               ))}
-            </div>
-            <div className="px-6 py-4 border-t border-border flex flex-col gap-2">
-              <Link href="/projects">
-                <Button fullWidth variant="outline">
-                  Explore Projects
-                </Button>
-              </Link>
-              <Link href="/contact">
-                <Button fullWidth>Start a Project</Button>
-              </Link>
+              <div className="pt-3 flex flex-col gap-2">
+                <Link href="/contact" onClick={handleMenu}>
+                  <Button fullWidth>Start a Project</Button>
+                </Link>
+                <Link href="/projects" onClick={handleMenu}>
+                  <Button fullWidth variant="outline">
+                    Explore Projects
+                  </Button>
+                </Link>
+              </div>
             </div>
           </motion.div>
         )}

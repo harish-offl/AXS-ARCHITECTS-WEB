@@ -1,69 +1,115 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { ArrowUpRight, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { stats, site } from "@/content/site";
 
 export function Hero() {
   return (
-    <section className="relative w-full h-[85vh] min-h-[640px] overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-white/70 to-secondary" />
-        <div
-          className="absolute inset-0 opacity-50 bg-[url('https://axsarchitects.com/wp-content/uploads/2023/02/home-sli.jpg')] bg-cover bg-center"
-          aria-hidden="true"
-        />
-      </div>
+    <section className="relative w-full overflow-hidden pt-[104px] pb-10 md:pt-[120px] md:pb-14">
+      <span className="watermark hidden md:block" aria-hidden="true">
+        AXS
+      </span>
 
-      <div className="relative z-10 flex flex-col items-start justify-center pt-24 pb-16 px-6 md:px-8 lg:px-12 max-w-6xl mx-auto h-full">
-        <div className="container max-w-3xl">
+      <div className="section-inner relative z-10">
+        <div className="grid lg:grid-cols-[1.02fr_1fr] gap-5">
+          {/* Left panel */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 font-display font-semibold text-sm tracking-widest uppercase text-accent mb-6"
+            className="relative overflow-hidden rounded-[2.25rem] bg-secondary p-7 sm:p-10 lg:p-12 flex flex-col justify-between"
           >
-            <span className="w-1 h-3 bg-accent" />
-            AXS Architects · Chennai
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full bg-background px-4 py-2 text-xs font-medium text-muted-foreground mb-7">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                AXS Architects · Chennai
+              </div>
+
+              <h1 className="font-display font-bold leading-[1.02] tracking-tight text-balance mb-6">
+                Thoughtful spaces,
+                <br />
+                <span className="text-muted-foreground">
+                  tailored to how you live.
+                </span>
+              </h1>
+
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-lg mb-8">
+                Thoughtful architecture, considered interiors, and carefully
+                planned spaces shaped around your vision — from first sketch to
+                final handover.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Link href="/contact">
+                  <Button size="lg" className="w-full sm:w-auto">
+                    Start a Project
+                    <ArrowUpRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </Link>
+                <Link href="/projects">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="w-full sm:w-auto bg-background"
+                  >
+                    View Projects
+                  </Button>
+                </Link>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-3 gap-3 mt-10">
+              {stats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="rounded-2xl bg-background px-4 py-5"
+                >
+                  <div className="font-display font-bold text-2xl md:text-3xl tracking-tight mb-1">
+                    {stat.value}
+                  </div>
+                  <div className="text-[11px] md:text-xs leading-snug text-muted-foreground">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
           </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="h1 font-display font-semibold leading-[0.95] tracking-tighter text-primary mb-6 text-balance"
-          >
-            Spaces Designed Around<br />
-            <span className="text-accent">the Way You Live.</span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-10 max-w-lg"
-          >
-            Thoughtful architecture, considered interiors, and carefully planned
-            spaces shaped around your vision.
-          </motion.p>
-
+          {/* Right image panel */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4"
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="relative overflow-hidden rounded-[2.25rem] min-h-[420px] lg:min-h-full"
           >
-            <Link href="/projects">
-              <Button size="lg" className="w-full sm:w-auto">
-                Explore Projects <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
-            </Link>
-            <Link href="/contact">
-              <Button size="lg" variant="outline" className="w-full sm:w-auto">
-                Discuss Your Project
-              </Button>
-            </Link>
+            <Image
+              src="https://axsarchitects.com/wp-content/uploads/2023/02/home-sli.jpg"
+              alt="AXS Architects residential project exterior"
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover object-center"
+            />
+            <div className="absolute inset-x-0 top-0 p-5 md:p-6 flex items-center justify-between gap-3">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-xs font-semibold text-black shadow-sm transition-opacity hover:opacity-90"
+              >
+                Book a consultation
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </Link>
+              <a
+                href={`tel:${site.phones[0].replace(/\s/g, "")}`}
+                className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-xs font-semibold text-black shadow-sm transition-opacity hover:opacity-90"
+              >
+                <Phone className="w-3.5 h-3.5" />
+                {site.phones[0]}
+              </a>
+            </div>
           </motion.div>
         </div>
       </div>

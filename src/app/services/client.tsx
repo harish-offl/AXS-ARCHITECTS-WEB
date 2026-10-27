@@ -10,7 +10,7 @@ export default function ServicesClient() {
 
   return (
     <>
-      <section className="section relative overflow-hidden">
+      <section className="section relative overflow-hidden pt-[140px]">
         <div className="section-inner relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <span className="section-eyebrow inline-block">Our Services</span>
@@ -45,9 +45,9 @@ export default function ServicesClient() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: visible.indexOf(service) * 0.06 }}
-                className="group flex flex-col rounded-xl border border-border bg-card shadow-sm hover:shadow-md transition-shadow duration-300"
+                className="group flex flex-col rounded-[1.75rem] overflow-hidden border border-border bg-card shadow-sm hover:shadow-md transition-shadow duration-300"
               >
-                <div className="relative h-56 overflow-hidden rounded-t-xl">
+                <div className="relative h-56 overflow-hidden">
                   <Image
                     src={service.image}
                     alt={service.imageAlt}

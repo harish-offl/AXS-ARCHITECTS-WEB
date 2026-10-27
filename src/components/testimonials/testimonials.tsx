@@ -13,35 +13,39 @@ export function Testimonials({ items }: TestimonialsProps) {
   if (visible.length === 0) return null;
 
   return (
-    <section className="section bg-white border-y border-border">
+    <section className="section pt-0">
       <div className="section-inner">
-        <div className="section-header mb-12">
-          <span className="section-eyebrow">Client Feedback</span>
-          <h2 className="h2 font-display font-semibold leading-[1.05] tracking-tight text-primary">
-            What Our Clients Say
-          </h2>
-        </div>
-        <div className="grid-3 max-w-5xl mx-auto">
-          {visible.map((item) => (
-            <motion.div
-              key={item.name}
-              whileHover={{ y: -4 }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: visible.indexOf(item) * 0.08 }}
-              className="rounded-xl border border-border bg-card p-8 shadow-sm"
-            >
-              <div className="flex items-center gap-2 mb-4">
-                <Quote className="w-5 h-5 text-accent" aria-hidden="true" />
-              </div>
-              <p className="text-base text-muted-foreground leading-relaxed italic mb-6">
-                “{item.text}”
-              </p>
-              <p className="font-display font-semibold text-sm text-primary">
-                {item.name}
-              </p>
-            </motion.div>
-          ))}
+        <div className="rounded-[2.25rem] bg-secondary p-5 sm:p-8 lg:p-10">
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <span className="section-eyebrow justify-center">
+              Client feedback
+            </span>
+            <h2 className="font-display font-bold leading-[1.06] tracking-tight">
+              What our clients say
+            </h2>
+          </div>
+          <div className="grid-3">
+            {visible.map((item, i) => (
+              <motion.div
+                key={item.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ delay: i * 0.08 }}
+                className="flex flex-col rounded-[1.75rem] bg-background border border-border p-7"
+              >
+                <span className="flex items-center justify-center w-10 h-10 rounded-full bg-accent mb-5">
+                  <Quote className="w-4 h-4 text-accent-foreground" aria-hidden="true" />
+                </span>
+                <p className="text-sm text-muted-foreground leading-relaxed italic mb-6 flex-1">
+                  &ldquo;{item.text}&rdquo;
+                </p>
+                <p className="font-display font-semibold text-sm text-primary">
+                  {item.name}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -12,6 +12,12 @@ export const site = {
   copyright: "© 2023 AXS Architects",
 };
 
+export const stats = [
+  { value: "15+", label: "Years of experience" },
+  { value: "120+", label: "Projects delivered" },
+  { value: "98%", label: "Client satisfaction" },
+];
+
 export const navLinks = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
