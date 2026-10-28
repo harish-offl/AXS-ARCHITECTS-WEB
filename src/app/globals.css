@@ -102,6 +102,11 @@
     scroll-behavior: smooth;
   }
 
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-text);
+  }
+
   * {
     box-sizing: border-box;
   }

@@ -16,6 +16,7 @@ export default function SitemapPage() {
     { name: "Privacy Policy", href: "/privacy-policy" },
     { name: "Terms & Conditions", href: "/terms-and-conditions" },
     { name: "Cookie Policy", href: "/cookie-policy" },
+    { name: "Developer", href: "/developer" },
   ];
 
   return (

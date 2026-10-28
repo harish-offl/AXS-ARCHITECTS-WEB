@@ -12,6 +12,7 @@ const legalLinks = [
   { name: "Cookie Policy", href: "/cookie-policy" },
   { name: "Careers", href: "/contact" },
   { name: "Sitemap", href: "/sitemap" },
+  { name: "Developer", href: "/developer" },
 ];
 
 export function Footer() {

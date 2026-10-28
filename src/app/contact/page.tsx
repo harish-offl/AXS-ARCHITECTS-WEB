@@ -4,6 +4,7 @@ import * as React from "react";
 import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { LocationMap } from "@/components/ui/expand-map";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { contact, enquiryFormDescription, projectTypes, privacyNotice } from "@/content/contact";
 import { site } from "@/content/site";
@@ -227,6 +228,26 @@ export default function ContactPage() {
                   <div className="leading-relaxed">{site.address}</div>
                 </li>
               </ul>
+
+              <div className="space-y-4">
+                <span className="font-display font-semibold text-xs uppercase tracking-widest text-muted-foreground block">
+                  Find us
+                </span>
+                <div className="pb-8">
+                  <LocationMap
+                    location="K.K. Nagar, Chennai"
+                    coordinates="13.0368° N, 80.2000° E"
+                  />
+                </div>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=AXS+Architects+VPS+Tower+K.K.+Nagar+Chennai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-accent transition-colors"
+                >
+                  Open in Google Maps <span aria-hidden="true">→</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
