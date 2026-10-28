@@ -9,7 +9,7 @@ export const site = {
   phones: ["+91 96771 33776", "+91 9025577156"],
   address:
     "S2, 2nd Floor, VPS Tower, PV Rajamannar Salai, Vijayaraghavapuram, K. K. Nagar, Chennai, Tamil Nadu 600093",
-  copyright: "© 2023 AXS Architects",
+  copyright: "© 2026 AXS Architects",
 };
 
 export const stats = [

@@ -1,0 +1,147 @@
+
+> axs-website@0.1.0 dev
+> next dev
+
+⚠ Port 3000 is in use by process 19588, using available port 3001 instead.
+▲ Next.js 16.4.3 (Turbopack)
+- Local:         http://localhost:3001
+- Network:       http://172.20.10.13:3001
+✓ Ready in 3.6s
+✓ Running next.config.ts took 6.1s
+- Cache Components enabled
+- Partial Prefetching enabled
+
+ GET / 200 in 1229ms (next.js: 494ms, application-code: 735ms)
+ GET / 200 in 173ms (next.js: 7ms, application-code: 166ms)
+ GET /contact 200 in 69ms (next.js: 16ms, application-code: 53ms)
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+✓ Compiled in 2.4s
+✓ Compiled in 446ms
+ GET /contact 200 in 423ms (next.js: 7ms, application-code: 416ms)
+ GET /contact 200 in 182ms (next.js: 4ms, application-code: 178ms)
+ GET /contact 200 in 149ms (next.js: 4ms, application-code: 145ms)
+✓ Compiled in 465ms
+ GET /contact 200 in 92ms (next.js: 3ms, application-code: 88ms)
+✓ Compiled in 74ms
+✓ Compiled in 369ms
+✓ Compiled in 270ms
+ GET /contact 200 in 156ms (next.js: 5ms, application-code: 151ms)
+ GET /contact 200 in 118ms (next.js: 3ms, application-code: 115ms)
+ GET /sitemap 200 in 139ms (next.js: 21ms, application-code: 118ms)
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+ GET /contact 200 in 52ms (next.js: 4ms, application-code: 48ms)
+ GET /cookie-policy 200 in 101ms (next.js: 24ms, application-code: 78ms)
+ GET /terms-and-conditions 200 in 96ms (next.js: 17ms, application-code: 79ms)
+✓ Compiled in 280ms
+✓ Compiled in 97ms
+✓ Compiled in 277ms
+ GET /services/planning 200 in 2.5s (next.js: 36ms, generate-params: 2.3s, application-code: 176ms)
+Error: Route "/services/[slug]": Next.js encountered URL data during prerendering or a navigation.
+
+`params` or `searchParams` accessed outside of `<Suspense>` may prevent the navigation from being instant, leading to a slower user experience.
+
+Ways to fix this:
+  - [stream] Provide a placeholder with `<Suspense fallback={...}>` around the data access
+  - [block] Set `export const instant = false` to allow a blocking route
+
+Learn more: https://nextjs.org/docs/messages/instant-shell-url-data
+    at ServicePage (src\app\services\[slug]\page.tsx:35:20)
+  33 |   params: Promise<{ slug: string }>;
+  34 | }) {
+> 35 |   const { slug } = await params;
+     |                    ^
+  36 |   const service = getService(slug);
+  37 |   if (!service) return notFound();
+  38 |
+ GET /contact 200 in 102ms (next.js: 4ms, application-code: 97ms)
+ GET /services/planning 200 in 928ms (next.js: 3ms, generate-params: 754ms, application-code: 170ms)
+Error: Route "/services/[slug]": Next.js encountered URL data during prerendering or a navigation.
+
+`params` or `searchParams` accessed outside of `<Suspense>` may prevent the navigation from being instant, leading to a slower user experience.
+
+Ways to fix this:
+  - [stream] Provide a placeholder with `<Suspense fallback={...}>` around the data access
+  - [block] Set `export const instant = false` to allow a blocking route
+
+Learn more: https://nextjs.org/docs/messages/instant-shell-url-data
+    at ServicePage (src\app\services\[slug]\page.tsx:35:20)
+  33 |   params: Promise<{ slug: string }>;
+  34 | }) {
+> 35 |   const { slug } = await params;
+     |                    ^
+  36 |   const service = getService(slug);
+  37 |   if (!service) return notFound();
+  38 |
+ GET /about 200 in 105ms (next.js: 15ms, application-code: 90ms)
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+✓ Compiled in 271ms
+ GET /about 200 in 87ms (next.js: 5ms, application-code: 83ms)
+✓ Compiled in 173ms
+[browser] Uncaught ReferenceError: DeveloperProfile is not defined
+    at Footer (src/components/footer/footer.tsx:110:64)
+    at Set.forEach (<anonymous>)
+    at RootLayout (src\app\layout.tsx:36:9)
+  108 |               <li className="flex items-start gap-3 text-white/70 leading-relaxed max-w-md">
+  109 |                 <MapPin className="w-5 h-5 mt-0.5 shrink-0" />
+> 110 |                 <span className="leading-relaxed">{site.address}</span>
+      |                                                                ^
+  111 |               </li>
+  112 |             </ul>
+  113 |           </div>
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+✓ Compiled in 69ms
+[browser] Uncaught ReferenceError: DeveloperProfile is not defined
+    at Footer (src/components/footer/footer.tsx:111:64)
+    at Set.forEach (<anonymous>)
+    at RootLayout (src\app\layout.tsx:36:9)
+  109 |               <li className="flex items-start gap-3 text-white/70 leading-relaxed max-w-md">
+  110 |                 <MapPin className="w-5 h-5 mt-0.5 shrink-0" />
+> 111 |                 <span className="leading-relaxed">{site.address}</span>
+      |                                                                ^
+  112 |               </li>
+  113 |             </ul>
+  114 |           </div>
+⨯ ReferenceError: DeveloperProfile is not defined
+    at Footer (src\components\footer\footer.tsx:117:10)
+  115 |         </div>
+  116 |
+> 117 |         <DeveloperProfile />
+      |          ^
+  118 |
+  119 |         <div className="border-t border-white/15 py-7 flex flex-col lg:flex-row justify-between items-center gap-4 text-xs text-white/60">
+  120 |           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2"> {
+  digest: '2919232291'
+}
+ GET /about 500 in 273ms (next.js: 4ms, application-code: 269ms)
+[browser] Uncaught ReferenceError: DeveloperProfile is not defined
+    at Footer (src/components/footer/footer.tsx:117:10)
+    at RootLayout (src\app\layout.tsx:36:9)
+  115 |         </div>
+  116 |
+> 117 |         <DeveloperProfile />
+      |          ^
+  118 |
+  119 |         <div className="border-t border-white/15 py-7 flex flex-col lg:flex-row justify-between items-center gap-4 text-xs text-white/60">
+  120 |           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+✓ Compiled in 110ms
+ GET /about 200 in 120ms (next.js: 3ms, application-code: 117ms)
+ GET /developer 200 in 121ms (next.js: 20ms, application-code: 102ms)
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+ GET /developer 200 in 224ms (next.js: 4ms, application-code: 220ms)
+ GET /developer 200 in 617ms (next.js: 41ms, application-code: 576ms)
+ GET /developer 200 in 161ms (next.js: 2ms, application-code: 159ms)
+ GET /developer 200 in 174ms (next.js: 1.9ms, application-code: 172ms)
+Route /developer is rendering with server caches disabled. For this navigation, Component Metadata in React DevTools will not accurately reflect what is statically prerenderable and runtime prefetchable. See more info here: https://nextjs.org/docs/messages/cache-bypass-in-dev
+ GET /developer 200 in 124ms (next.js: 2.0ms, application-code: 122ms)
+ GET /developer 200 in 132ms (next.js: 3ms, application-code: 129ms)
+ GET /process 200 in 72ms (next.js: 17ms, application-code: 55ms)
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+ GET /services 200 in 82ms (next.js: 16ms, application-code: 67ms)
+ GET /developer 200 in 80ms (next.js: 4ms, application-code: 76ms)
+ GET /developer 200 in 162ms (next.js: 2ms, application-code: 160ms)
+ GET /developer 200 in 115ms (next.js: 1.7ms, application-code: 113ms)
+ GET /developer 200 in 113ms (next.js: 2.0ms, application-code: 111ms)
+ GET /developer 200 in 108ms (next.js: 2ms, application-code: 106ms)
+ GET /developer 200 in 152ms (next.js: 3ms, application-code: 149ms)
+ GET /developer 200 in 134ms (next.js: 1.4ms, application-code: 133ms)
+ GET /developer 200 in 129ms (next.js: 2ms, application-code: 126ms)

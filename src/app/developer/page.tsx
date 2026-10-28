@@ -71,8 +71,10 @@ export default function DeveloperPage() {
                   </div>
                   M.RM. Annamalai
                 </h1>
-                <p className="text-lg text-muted-foreground">
-                  Founder &amp; Digital Developer at Arrise Digital
+                <p className="mt-2">
+                  <span className="inline-block bg-accent text-primary font-display font-semibold text-sm px-4 py-1.5 rounded-full tracking-wide">
+                    Founder &amp; Digital Developer at Arrise Digital
+                  </span>
                 </p>
               </div>
             </div>

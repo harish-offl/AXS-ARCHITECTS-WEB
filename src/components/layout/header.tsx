@@ -4,6 +4,8 @@ import * as React from "react";
 import { useEffect, useState, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
+
 import { usePathname } from "next/navigation";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -41,15 +43,18 @@ export function Header() {
         <div className="flex items-center justify-between h-[88px]">
           <Link
             href="/"
-            className="flex items-center gap-2 shrink-0"
+            className="flex items-center shrink-0"
             aria-label="AXS Architects home"
           >
-            <span className="font-display font-bold text-lg tracking-tight text-primary">
-              AXS
-            </span>
-            <span className="hidden sm:inline font-display font-medium text-sm tracking-tight text-muted-foreground">
-              Architects
-            </span>
+            <Image
+              src="/axs-logo.png"
+              alt="AXS Architects"
+              width={140}
+              height={56}
+              style={{ height: "56px", width: "auto" }}
+              className="object-contain"
+              priority
+            />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-9 text-sm font-medium">
